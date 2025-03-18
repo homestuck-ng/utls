@@ -8,7 +8,7 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
-	"slices"
+	"golang.org/x/exp/slices"
 	"strings"
 
 	"github.com/refraction-networking/utls/internal/hpke"
@@ -216,7 +216,10 @@ func encodeInnerClientHello(inner *clientHelloMsg, maxNameLength int) ([]byte, e
 
 	var paddingLen int
 	if inner.serverName != "" {
-		paddingLen = max(0, maxNameLength-len(inner.serverName))
+		paddingLen = maxNameLength - len(inner.serverName)
+		if paddingLen < 0 {
+			paddingLen = 0
+		}
 	} else {
 		paddingLen = maxNameLength + 9
 	}

@@ -12,9 +12,9 @@ import (
 	"crypto/mlkem"
 	"crypto/rsa"
 	"errors"
+	"golang.org/x/exp/slices"
 	"hash"
 	"io"
-	"slices"
 	"sort"
 	"time"
 
