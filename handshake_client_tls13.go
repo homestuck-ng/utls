@@ -9,7 +9,6 @@ import (
 	"context"
 	"crypto"
 	"crypto/hmac"
-	"crypto/mlkem"
 	"crypto/rsa"
 	"crypto/subtle"
 	"errors"
@@ -19,6 +18,7 @@ import (
 	"time"
 
 	"github.com/refraction-networking/utls/internal/hkdf"
+	"github.com/refraction-networking/utls/internal/mlkem"
 	"github.com/refraction-networking/utls/internal/tls13"
 )
 

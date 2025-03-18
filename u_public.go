@@ -7,12 +7,13 @@ package tls
 import (
 	"crypto"
 	"crypto/ecdh"
-	"crypto/mlkem"
 	"crypto/x509"
 	"hash"
 	"time"
 
 	"github.com/cloudflare/circl/kem"
+
+	"github.com/refraction-networking/utls/internal/mlkem"
 )
 
 // ClientHandshakeState includes both TLS 1.3-only and TLS 1.2-only states,

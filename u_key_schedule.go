@@ -1,7 +1,7 @@
 package tls
 
 import (
-	"crypto/mlkem"
+	"github.com/refraction-networking/utls/internal/mlkem"
 
 	"golang.org/x/crypto/sha3"
 )

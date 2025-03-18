@@ -10,7 +10,6 @@ import (
 	"crypto"
 	"crypto/ecdsa"
 	"crypto/ed25519"
-	"crypto/mlkem"
 	"crypto/rsa"
 	"crypto/subtle"
 	"crypto/x509"
@@ -26,6 +25,7 @@ import (
 	"github.com/refraction-networking/utls/internal/byteorder"
 	"github.com/refraction-networking/utls/internal/fips140tls"
 	"github.com/refraction-networking/utls/internal/hpke"
+	"github.com/refraction-networking/utls/internal/mlkem"
 	"github.com/refraction-networking/utls/internal/tls13"
 
 	circlSign "github.com/cloudflare/circl/sign"
