@@ -7,11 +7,11 @@ package tls
 import (
 	"crypto/ecdh"
 	"crypto/hmac"
-	"crypto/mlkem"
 	"errors"
 	"hash"
 	"io"
 
+	"github.com/refraction-networking/utls/internal/mlkem"
 	"github.com/refraction-networking/utls/internal/tls13"
 )
 

@@ -9,7 +9,6 @@ import (
 	"context"
 	"crypto"
 	"crypto/hmac"
-	"crypto/mlkem"
 	"crypto/rsa"
 	"errors"
 	"golang.org/x/exp/slices"
@@ -22,6 +21,7 @@ import (
 	"github.com/refraction-networking/utls/internal/fips140tls"
 	"github.com/refraction-networking/utls/internal/hkdf"
 	"github.com/refraction-networking/utls/internal/hpke"
+	"github.com/refraction-networking/utls/internal/mlkem"
 	"github.com/refraction-networking/utls/internal/tls13"
 )
 
