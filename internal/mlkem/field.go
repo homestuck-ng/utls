@@ -6,7 +6,7 @@ package mlkem
 
 import (
 	"errors"
-	"github.com/refraction-networking/utls/internal/byteorder"
+	"github.com/metacubex/utls/internal/byteorder"
 	"golang.org/x/crypto/sha3"
 )
 

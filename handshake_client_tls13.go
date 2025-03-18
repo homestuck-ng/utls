@@ -17,9 +17,9 @@ import (
 	"hash"
 	"time"
 
-	"github.com/refraction-networking/utls/internal/hkdf"
-	"github.com/refraction-networking/utls/internal/mlkem"
-	"github.com/refraction-networking/utls/internal/tls13"
+	"github.com/metacubex/utls/internal/hkdf"
+	"github.com/metacubex/utls/internal/mlkem"
+	"github.com/metacubex/utls/internal/tls13"
 )
 
 type clientHandshakeStateTLS13 struct {
