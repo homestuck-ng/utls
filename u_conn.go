@@ -845,9 +845,9 @@ func (c *Conn) utlsConnectionStateLocked(state *ConnectionState) {
 
 type utlsConnExtraFields struct {
 	// Application Settings (ALPS)
-	hasApplicationSettings   bool
-	peerApplicationSettings  []byte
-	localApplicationSettings []byte
+	peerApplicationSettings      []byte
+	localApplicationSettings     []byte
+	applicationSettingsCodepoint uint16
 
 	sessionController *sessionController
 }
