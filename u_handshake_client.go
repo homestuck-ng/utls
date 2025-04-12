@@ -508,6 +508,7 @@ func (c *UConn) clientHandshake(ctx context.Context) (err error) {
 
 	c.serverName = hello.serverName
 
+	// [SHADOWTLS SECTION BEGINS]
 	// A random session ID is used to detect when the server accepted a ticket
 	// and is resuming a session (see RFC 5077). In TLS 1.3, it's always set as
 	// a compatibility measure (see RFC 8446, Section 4.1.2).
@@ -524,6 +525,7 @@ func (c *UConn) clientHandshake(ctx context.Context) (err error) {
 		}
 		hello.original = nil
 	}
+	// [SHADOWTLS SECTION ENDS]
 
 	if _, err := c.writeHandshakeRecord(hello, nil); err != nil {
 		return err
