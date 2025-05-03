@@ -104,6 +104,23 @@ type RealityConfig struct {
 	Config
 }
 
+func (a *RealityConfig) Clone() *RealityConfig {
+	return &RealityConfig{
+		DialContext:  a.DialContext,
+		Log:          a.Log,
+		Type:         a.Type,
+		Dest:         a.Dest,
+		Xver:         a.Xver,
+		ServerNames:  a.ServerNames,
+		PrivateKey:   a.PrivateKey,
+		MinClientVer: a.MinClientVer,
+		MaxClientVer: a.MaxClientVer,
+		MaxTimeDiff:  a.MaxTimeDiff,
+		ShortIds:     a.ShortIds,
+		Config:       *a.Config.Clone(),
+	}
+}
+
 var (
 	ed25519Priv ed25519.PrivateKey
 	signedCert  []byte
