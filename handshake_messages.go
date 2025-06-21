@@ -1273,12 +1273,11 @@ func (m *newSessionTicketMsgTLS13) unmarshal(data []byte) bool {
 }
 
 type certificateRequestMsgTLS13 struct {
-	original                         []byte
+	original                         []byte // [uTLS]
 	ocspStapling                     bool
 	scts                             bool
 	supportedSignatureAlgorithms     []SignatureScheme
 	supportedSignatureAlgorithmsCert []SignatureScheme
-	certRequestCompressionAlgs       []CertCompressionAlgo
 	certificateAuthorities           [][]byte
 }
 
@@ -1314,17 +1313,6 @@ func (m *certificateRequestMsgTLS13) marshal() ([]byte, error) {
 					})
 				})
 			}
-			if len(m.certRequestCompressionAlgs) > 0 {
-				b.AddUint16(extensionCompressCertificate)
-				b.AddUint16LengthPrefixed(func(b *cryptobyte.Builder) {
-					b.AddUint8LengthPrefixed(func(b *cryptobyte.Builder) {
-						for _, algo := range m.certRequestCompressionAlgs {
-							b.AddUint16(uint16(algo))
-						}
-					})
-				})
-			}
-
 			if len(m.supportedSignatureAlgorithmsCert) > 0 {
 				b.AddUint16(extensionSignatureAlgorithmsCert)
 				b.AddUint16LengthPrefixed(func(b *cryptobyte.Builder) {
@@ -1354,7 +1342,7 @@ func (m *certificateRequestMsgTLS13) marshal() ([]byte, error) {
 }
 
 func (m *certificateRequestMsgTLS13) unmarshal(data []byte) bool {
-	*m = certificateRequestMsgTLS13{original: data}
+	*m = certificateRequestMsgTLS13{original: data} // [uTLS]
 	s := cryptobyte.String(data)
 
 	var context, extensions cryptobyte.String
@@ -1390,19 +1378,6 @@ func (m *certificateRequestMsgTLS13) unmarshal(data []byte) bool {
 				}
 				m.supportedSignatureAlgorithms = append(
 					m.supportedSignatureAlgorithms, SignatureScheme(sigAndAlg))
-			}
-		case extensionCompressCertificate:
-			var algs cryptobyte.String
-			if !extData.ReadUint8LengthPrefixed(&algs) || algs.Empty() {
-				return false
-			}
-			for !algs.Empty() {
-				var alg uint16
-				if !algs.ReadUint16(&alg) {
-					return false
-				}
-				m.certRequestCompressionAlgs = append(
-					m.certRequestCompressionAlgs, CertCompressionAlgo(alg))
 			}
 		case extensionSignatureAlgorithmsCert:
 			var sigAndAlgs cryptobyte.String
@@ -1442,9 +1417,12 @@ func (m *certificateRequestMsgTLS13) unmarshal(data []byte) bool {
 	return true
 }
 
+// [UTLS SECTION BEGINS]
 func (m *certificateRequestMsgTLS13) originalBytes() []byte {
 	return m.original
 }
+
+// [UTLS SECTION ENDS]
 
 type certificateMsg struct {
 	certificates [][]byte
