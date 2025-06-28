@@ -841,7 +841,6 @@ func (c *Conn) utlsHandshakeMessageType(msgType byte) (handshakeMessage, error) 
 // Extending (*Conn).connectionStateLocked()
 func (c *Conn) utlsConnectionStateLocked(state *ConnectionState) {
 	state.PeerApplicationSettings = c.utls.peerApplicationSettings
-	state.ECHRetryConfigs = c.utls.echRetryConfigs
 }
 
 type utlsConnExtraFields struct {
@@ -849,9 +848,6 @@ type utlsConnExtraFields struct {
 	hasApplicationSettings   bool
 	peerApplicationSettings  []byte
 	localApplicationSettings []byte
-
-	// Encrypted Client Hello (ECH)
-	echRetryConfigs []ECHConfig
 
 	sessionController *sessionController
 }

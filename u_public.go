@@ -11,8 +11,6 @@ import (
 	"hash"
 	"time"
 
-	"github.com/cloudflare/circl/kem"
-
 	"github.com/metacubex/utls/internal/mlkem"
 )
 
@@ -839,14 +837,14 @@ func (TKS TicketKeys) ToPrivate() []ticketKey {
 }
 
 type kemPrivateKey struct {
-	secretKey kem.PrivateKey
+	secretKey any
 	curveID   CurveID
 }
 
 // Deprecated: Use KeySharePrivateKeys instead. This type is no longer used.
 // Will be removed in the future.
 type KemPrivateKey struct {
-	SecretKey kem.PrivateKey
+	SecretKey any
 	CurveID   CurveID
 }
 
