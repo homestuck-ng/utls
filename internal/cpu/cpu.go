@@ -8,11 +8,6 @@ package cpu
 
 import _ "unsafe" // for linkname
 
-// DebugOptions is set to true by the runtime if the OS supports reading
-// GODEBUG early in runtime startup.
-// This should not be changed after it is initialized.
-var DebugOptions bool
-
 // CacheLinePad is used to pad structs to avoid false sharing.
 type CacheLinePad struct{ _ [CacheLinePadSize]byte }
 
@@ -160,13 +155,8 @@ var RISCV64 struct {
 //go:linkname S390X
 //go:linkname RISCV64
 
-// Initialize examines the processor and sets the relevant variables above.
-// This is called by the runtime package early in program initialization,
-// before normal init functions are run. env is set by runtime if the OS supports
-// cpu feature options in GODEBUG.
-func Initialize(env string) {
+func init() {
 	doinit()
-	processOptions(env)
 }
 
 // options contains the cpu debug options that can be used in GODEBUG.
@@ -181,87 +171,4 @@ type option struct {
 	Feature   *bool
 	Specified bool // whether feature value was specified in GODEBUG
 	Enable    bool // whether feature should be enabled
-}
-
-// processOptions enables or disables CPU feature values based on the parsed env string.
-// The env string is expected to be of the form cpu.feature1=value1,cpu.feature2=value2...
-// where feature names is one of the architecture specific list stored in the
-// cpu packages options variable and values are either 'on' or 'off'.
-// If env contains cpu.all=off then all cpu features referenced through the options
-// variable are disabled. Other feature names and values result in warning messages.
-func processOptions(env string) {
-field:
-	for env != "" {
-		field := ""
-		i := indexByte(env, ',')
-		if i < 0 {
-			field, env = env, ""
-		} else {
-			field, env = env[:i], env[i+1:]
-		}
-		if len(field) < 4 || field[:4] != "cpu." {
-			continue
-		}
-		i = indexByte(field, '=')
-		if i < 0 {
-			print("GODEBUG: no value specified for \"", field, "\"\n")
-			continue
-		}
-		key, value := field[4:i], field[i+1:] // e.g. "SSE2", "on"
-
-		var enable bool
-		switch value {
-		case "on":
-			enable = true
-		case "off":
-			enable = false
-		default:
-			print("GODEBUG: value \"", value, "\" not supported for cpu option \"", key, "\"\n")
-			continue field
-		}
-
-		if key == "all" {
-			for i := range options {
-				options[i].Specified = true
-				options[i].Enable = enable
-			}
-			continue field
-		}
-
-		for i := range options {
-			if options[i].Name == key {
-				options[i].Specified = true
-				options[i].Enable = enable
-				continue field
-			}
-		}
-
-		print("GODEBUG: unknown cpu feature \"", key, "\"\n")
-	}
-
-	for _, o := range options {
-		if !o.Specified {
-			continue
-		}
-
-		if o.Enable && !*o.Feature {
-			print("GODEBUG: can not enable \"", o.Name, "\", missing CPU support\n")
-			continue
-		}
-
-		*o.Feature = o.Enable
-	}
-}
-
-// indexByte returns the index of the first instance of c in s,
-// or -1 if c is not present in s.
-// indexByte is semantically the same as [strings.IndexByte].
-// We copy this function because "internal/cpu" should not have external dependencies.
-func indexByte(s string, c byte) int {
-	for i := 0; i < len(s); i++ {
-		if s[i] == c {
-			return i
-		}
-	}
-	return -1
 }
