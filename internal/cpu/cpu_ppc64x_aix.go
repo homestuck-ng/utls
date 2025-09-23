@@ -22,4 +22,6 @@ func osinit() {
 }
 
 // getsystemcfg is defined in runtime/os2_aix.go
+//
+//go:linkname getsystemcfg internal/cpu.getsystemcfg
 func getsystemcfg(label uint) uint

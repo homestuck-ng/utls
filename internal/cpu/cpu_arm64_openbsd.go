@@ -17,6 +17,7 @@ const (
 )
 
 //go:noescape
+//go:linkname sysctlUint64 internal/cpu.sysctlUint64
 func sysctlUint64(mib []uint32) (uint64, bool)
 
 func osInit() {
