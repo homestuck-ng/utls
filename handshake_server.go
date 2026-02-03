@@ -151,6 +151,7 @@ func (c *Conn) readClientHello(ctx context.Context) (*clientHelloMsg, *echServer
 	var ech *echServerContext
 	if len(clientHello.encryptedClientHello) != 0 {
 		clientHello, ech, err = c.processECHClientHello(clientHello)
+		fmt.Printf("[ECH] error: %v;echclienthello: %+v\n", err, clientHello)
 		if err != nil {
 			return nil, nil, err
 		}
