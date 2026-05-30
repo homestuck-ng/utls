@@ -995,10 +995,10 @@ func utlsIdToSpec(id ClientHelloID) (ClientHelloSpec, error) {
                 pointFormatUncompressed,                     // 0x00
             }},
             &SCTExtension{},                                 // signed_certificate_timestamp (18)
-            &UtlsExtension{                                  // Unknown 51764
-                ExtensionType: 51764,
-                Data:          []byte{0x00, 0x00},
-            },
+            &GenericExtension{
+    Id:   51764,
+    Data: []byte{0x00, 0x00},
+},
             &ALPNExtension{AlpnProtocols: []string{
                 "h2",
                 "http/1.1",
