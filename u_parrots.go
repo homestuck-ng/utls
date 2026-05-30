@@ -1028,7 +1028,7 @@ func utlsIdToSpec(id ClientHelloID) (ClientHelloSpec, error) {
         },
     },
 
-    &ApplicationSettingsExtension{
+    &ApplicationSettingsExtensionNew{
         SupportedProtocols: []string{"h2"},
     },
 
