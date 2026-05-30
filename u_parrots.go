@@ -819,6 +819,7 @@ func utlsIdToSpec(id ClientHelloID) (ClientHelloSpec, error) {
 			}),
 		}, nil
 	case HelloChrome_131:
+		panic("HELLO_CHROME_141")
 		return ClientHelloSpec{
 			CipherSuites: []uint16{
 				GREASE_PLACEHOLDER,
