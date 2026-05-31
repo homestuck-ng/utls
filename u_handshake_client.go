@@ -281,6 +281,7 @@ func (c *Conn) makeClientHelloForApplyPreset() (*clientHelloMsg, *keySharePrivat
 		if len(hello.supportedCurves) == 0 {
 			return nil, nil, nil, errors.New("tls: no supported elliptic curves for ECDHE")
 		}
+		keyShareKeys = &keySharePrivateKeys{curveID: hello.supportedCurves[0]}
 		// curveID := hello.supportedCurves[0]
 		// keyShareKeys = &keySharePrivateKeys{curveID: curveID}
 		// // Note that if X25519MLKEM768 is supported, it will be first because
