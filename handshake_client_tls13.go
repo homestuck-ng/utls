@@ -18,9 +18,9 @@ import (
 	"hash"
 	"time"
 
-	"github.com/metacubex/utls/internal/hkdf"
-	"github.com/metacubex/utls/internal/mlkem"
-	"github.com/metacubex/utls/internal/tls13"
+	"github.com/homestuck-ng/utls/internal/hkdf"
+	"github.com/homestuck-ng/utls/internal/mlkem"
+	"github.com/homestuck-ng/utls/internal/tls13"
 )
 
 type clientHandshakeStateTLS13 struct {

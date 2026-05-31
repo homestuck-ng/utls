@@ -9,8 +9,8 @@ package tls13
 import (
 	fips140 "hash"
 
-	"github.com/metacubex/utls/internal/byteorder"
-	"github.com/metacubex/utls/internal/hkdf"
+	"github.com/homestuck-ng/utls/internal/byteorder"
+	"github.com/homestuck-ng/utls/internal/hkdf"
 )
 
 // We don't set the service indicator in this package but we delegate that to

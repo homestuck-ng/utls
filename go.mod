@@ -1,4 +1,4 @@
-module github.com/metacubex/utls
+module github.com/homestuck-ng/utls
 
 go 1.20
 

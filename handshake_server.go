@@ -18,7 +18,7 @@ import (
 	"io"
 	"time"
 
-	"github.com/metacubex/utls/internal/byteorder"
+	"github.com/homestuck-ng/utls/internal/byteorder"
 )
 
 // serverHandshakeState contains details of a server handshake in progress.

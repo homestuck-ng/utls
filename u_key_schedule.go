@@ -1,7 +1,7 @@
 package tls
 
 import (
-	"github.com/metacubex/utls/internal/mlkem"
+	"github.com/homestuck-ng/utls/internal/mlkem"
 
 	"golang.org/x/crypto/sha3"
 )

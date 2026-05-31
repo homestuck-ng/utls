@@ -1,7 +1,7 @@
 package tls
 
 import (
-	"github.com/metacubex/utls/internal/hpke"
+	"github.com/homestuck-ng/utls/internal/hpke"
 )
 
 type HPKERawPublicKey = []byte

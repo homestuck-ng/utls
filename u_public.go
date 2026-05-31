@@ -11,7 +11,7 @@ import (
 	"hash"
 	"time"
 
-	"github.com/metacubex/utls/internal/mlkem"
+	"github.com/homestuck-ng/utls/internal/mlkem"
 )
 
 // ClientHandshakeState includes both TLS 1.3-only and TLS 1.2-only states,

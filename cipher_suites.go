@@ -18,8 +18,8 @@ import (
 	"runtime"
 	_ "unsafe" // for linkname
 
-	"github.com/metacubex/utls/internal/boring"
-	"github.com/metacubex/utls/internal/cpu"
+	"github.com/homestuck-ng/utls/internal/boring"
+	"github.com/homestuck-ng/utls/internal/cpu"
 
 	"golang.org/x/crypto/chacha20poly1305"
 )

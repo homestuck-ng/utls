@@ -11,7 +11,7 @@
 // [NIST FIPS 203]: https://doi.org/10.6028/NIST.FIPS.203
 package mlkem
 
-import "github.com/metacubex/utls/internal/mlkem"
+import "github.com/homestuck-ng/utls/internal/mlkem"
 
 const (
 	// SharedKeySize is the size of a shared key produced by ML-KEM.

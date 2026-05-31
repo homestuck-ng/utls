@@ -8,7 +8,7 @@ import (
 	"crypto"
 	"testing"
 
-	"github.com/metacubex/utls/internal/fips140tls"
+	"github.com/homestuck-ng/utls/internal/fips140tls"
 )
 
 func TestSignatureSelection(t *testing.T) {

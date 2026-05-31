@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/metacubex/utls/internal/tls13"
+	"github.com/homestuck-ng/utls/internal/tls13"
 )
 
 // Tracking the state of calling conn.loadSession

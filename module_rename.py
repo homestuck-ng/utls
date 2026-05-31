@@ -7,7 +7,7 @@ import fileinput
 
 
 PKG_ORIGINAL = "github.com/refraction-networking/utls"
-PKG_NEW = "github.com/metacubex/utls"
+PKG_NEW = "github.com/homestuck-ng/utls"
 
 EXTENSIONS = [".go", ".md", ".mod", ".sh"]
 

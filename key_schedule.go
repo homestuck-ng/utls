@@ -11,8 +11,8 @@ import (
 	"hash"
 	"io"
 
-	"github.com/metacubex/utls/internal/mlkem"
-	"github.com/metacubex/utls/internal/tls13"
+	"github.com/homestuck-ng/utls/internal/mlkem"
+	"github.com/homestuck-ng/utls/internal/tls13"
 )
 
 // This file contains the functions necessary to compute the TLS 1.3 key

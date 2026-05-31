@@ -5,8 +5,8 @@ import (
 	"io"
 	"testing"
 
-	tls "github.com/metacubex/utls"
-	"github.com/metacubex/utls/dicttls"
+	tls "github.com/homestuck-ng/utls"
+	"github.com/homestuck-ng/utls/dicttls"
 )
 
 func TestGREASEECHWrite(t *testing.T) {

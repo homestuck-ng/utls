@@ -13,7 +13,7 @@ package hkdf
 import (
 	"hash"
 
-	"github.com/metacubex/utls/internal/hkdf"
+	"github.com/homestuck-ng/utls/internal/hkdf"
 )
 
 // Extract generates a pseudorandom key for use with [Expand] from an input

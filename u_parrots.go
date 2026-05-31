@@ -17,8 +17,8 @@ import (
 	"sort"
 	"strconv"
 
-	"github.com/metacubex/utls/dicttls"
-	"github.com/metacubex/utls/internal/mlkem"
+	"github.com/homestuck-ng/utls/dicttls"
+	"github.com/homestuck-ng/utls/internal/mlkem"
 )
 
 var ErrUnknownClientHelloID = errors.New("tls: unknown ClientHelloID")

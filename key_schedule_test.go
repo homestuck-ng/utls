@@ -12,7 +12,7 @@ import (
 	"testing"
 	"unicode"
 
-	"github.com/metacubex/utls/internal/tls13"
+	"github.com/homestuck-ng/utls/internal/tls13"
 )
 
 func TestACVPVectors(t *testing.T) {

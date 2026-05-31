@@ -17,12 +17,12 @@ import (
 	"sort"
 	"time"
 
-	"github.com/metacubex/utls/internal/byteorder"
-	"github.com/metacubex/utls/internal/fips140tls"
-	"github.com/metacubex/utls/internal/hkdf"
-	"github.com/metacubex/utls/internal/hpke"
-	"github.com/metacubex/utls/internal/mlkem"
-	"github.com/metacubex/utls/internal/tls13"
+	"github.com/homestuck-ng/utls/internal/byteorder"
+	"github.com/homestuck-ng/utls/internal/fips140tls"
+	"github.com/homestuck-ng/utls/internal/hkdf"
+	"github.com/homestuck-ng/utls/internal/hpke"
+	"github.com/homestuck-ng/utls/internal/mlkem"
+	"github.com/homestuck-ng/utls/internal/tls13"
 )
 
 // maxClientPSKIdentities is the number of client PSK identities the server will

@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/metacubex/utls/internal/quicvarint/protocol"
+	"github.com/homestuck-ng/utls/internal/quicvarint/protocol"
 )
 
 // taken from the QUIC draft
